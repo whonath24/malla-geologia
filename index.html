@@ -1,15 +1,137 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Malla Curricular Interactiva - Geología</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Malla Curricular Geología</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h1>Malla Curricular Interactiva - Geología</h1>
-  <div id="grid"></div>
+    <div class="container">
+        <h1>Malla Curricular de Geología</h1>
+        
+        <div class="grid-container">
+            <!-- Nivel 1 -->
+            <div class="level">
+                <h2>Nivel 1 - Fundamentación básica</h2>
+                <div class="courses">
+                    <div class="course" data-course="calculo1" onclick="toggleCourse('calculo1')">Cálculo I</div>
+                    <div class="course" data-course="quimica1" onclick="toggleCourse('quimica1')">Química I</div>
+                    <div class="course" data-course="etica" onclick="toggleCourse('etica')">Ética ciudadana</div>
+                    <div class="course" data-course="algebra" onclick="toggleCourse('algebra')">Álgebra Lineal I</div>
+                    <div class="course" data-course="geociencias" onclick="toggleCourse('geociencias')">Introducción a las Geociencias</div>
+                    <div class="course" data-course="lenguaje" onclick="toggleCourse('lenguaje')">Taller de Lenguaje</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 2 -->
+            <div class="level">
+                <h2>Nivel 2 - Ampliación en ciencias básicas</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="calculo2" data-req="calculo1,algebra" onclick="toggleCourse('calculo2')">Cálculo II</div>
+                    <div class="course" data-course="fisica1" onclick="toggleCourse('fisica1')">Física I</div>
+                    <div class="course" data-course="geometria" onclick="toggleCourse('geometria')">Geometría Descriptiva</div>
+                    <div class="course locked" data-course="quimica2" data-req="quimica1" onclick="toggleCourse('quimica2')">Química II</div>
+                    <div class="course locked" data-course="mineralogia1" data-req="geociencias" onclick="toggleCourse('mineralogia1')">Mineralogía I</div>
+                    <div class="course" data-course="deportes" onclick="toggleCourse('deportes')">Cultura Física y Deportiva</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 3 -->
+            <div class="level">
+                <h2>Nivel 3 - Consolidación básica</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="calculo3" data-req="calculo2" onclick="toggleCourse('calculo3')">Cálculo III</div>
+                    <div class="course locked" data-course="fisica2" data-req="fisica1" onclick="toggleCourse('fisica2')">Física II</div>
+                    <div class="course locked" data-course="mineralogia2" data-req="mineralogia1" onclick="toggleCourse('mineralogia2')">Mineralogía II</div>
+                    <div class="course locked" data-course="cartografia" data-req="geometria" onclick="toggleCourse('cartografia')">Cartografía</div>
+                    <div class="course locked" data-course="biologia" data-req="geociencias" onclick="toggleCourse('biologia')">Biología para Geólogos</div>
+                    <div class="course" data-course="ingles1" onclick="toggleCourse('ingles1')">Inglés I</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 4 -->
+            <div class="level">
+                <h2>Nivel 4 - Primer contacto especializado</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="fisica3" data-req="calculo3,fisica2" onclick="toggleCourse('fisica3')">Física III</div>
+                    <div class="course locked" data-course="metodos" data-req="fisica3" onclick="toggleCourse('metodos')">Métodos Geofísicos</div>
+                    <div class="course locked" data-course="sedimentologia" data-req="mineralogia2" onclick="toggleCourse('sedimentologia')">Sedimentología</div>
+                    <div class="course locked" data-course="paleontologia1" data-req="biologia" onclick="toggleCourse('paleontologia1')">Paleontología I</div>
+                    <div class="course locked" data-course="ingles2" data-req="ingles1" onclick="toggleCourse('ingles2')">Inglés II</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 5 -->
+            <div class="level">
+                <h2>Nivel 5 - Geología técnica inicial</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="teledeteccion" data-req="metodos" onclick="toggleCourse('teledeteccion')">Teledetección</div>
+                    <div class="course locked" data-course="petrologiaIgnea" data-req="sedimentologia" onclick="toggleCourse('petrologiaIgnea')">Petrología Ígnea</div>
+                    <div class="course locked" data-course="estratigrafia" data-req="paleontologia1" onclick="toggleCourse('estratigrafia')">Estratigrafía</div>
+                    <div class="course locked" data-course="geomorfologia" data-req="cartografia" onclick="toggleCourse('geomorfologia')">Geomorfología</div>
+                    <div class="course locked" data-course="geologiaEstructural" data-req="cartografia" onclick="toggleCourse('geologiaEstructural')">Geología Estructural</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 6 -->
+            <div class="level">
+                <h2>Nivel 6 - Integración e historia</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="sig" data-req="cartografia" onclick="toggleCourse('sig')">SIG</div>
+                    <div class="course locked" data-course="geologiaHistorica" data-req="estratigrafia" onclick="toggleCourse('geologiaHistorica')">Geología Histórica</div>
+                    <div class="course locked" data-course="petrologiaMetamorfica" data-req="petrologiaIgnea" onclick="toggleCourse('petrologiaMetamorfica')">Petrología Metamórfica</div>
+                    <div class="course locked" data-course="campo1" data-req="estratigrafia" onclick="toggleCourse('campo1')">Campo I</div>
+                    <div class="course locked" data-course="geoestadistica" data-req="calculo3" onclick="toggleCourse('geoestadistica')">Geoestadística</div>
+                    <div class="course" data-course="contexto1" onclick="toggleCourse('contexto1')">Asignatura de Contexto</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 7 -->
+            <div class="level">
+                <h2>Nivel 7 - Exploración aplicada</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="hidrogeologia" data-req="petrologiaMetamorfica" onclick="toggleCourse('hidrogeologia')">Hidrogeología</div>
+                    <div class="course locked" data-course="geoquimica" data-req="petrologiaMetamorfica" onclick="toggleCourse('geoquimica')">Geoquímica</div>
+                    <div class="course locked" data-course="campo2" data-req="campo1,geoestadistica" onclick="toggleCourse('campo2')">Campo II</div>
+                    <div class="course locked" data-course="tecnicas" data-req="campo1" onclick="toggleCourse('tecnicas')">Técnicas de Análisis</div>
+                    <div class="course" data-course="contexto2" onclick="toggleCourse('contexto2')">Asignatura de Contexto</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 8 -->
+            <div class="level">
+                <h2>Nivel 8 - Aplicación profesional</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="geologiaAmbiental" data-req="geomorfologia" onclick="toggleCourse('geologiaAmbiental')">Geología Ambiental</div>
+                    <div class="course locked" data-course="economia" data-req="geoestadistica" onclick="toggleCourse('economia')">Economía</div>
+                    <div class="course locked" data-course="yacimientos" data-req="geoquimica" onclick="toggleCourse('yacimientos')">Yacimientos Minerales</div>
+                    <div class="course locked" data-course="hidrocarburos" data-req="campo2" onclick="toggleCourse('hidrocarburos')">Geología de Hidrocarburos</div>
+                    <div class="course" data-course="electiva1" onclick="toggleCourse('electiva1')">Asignatura Técnica</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 9 -->
+            <div class="level">
+                <h2>Nivel 9 - Nacional y profesional</h2>
+                <div class="courses">
+                    <div class="course" data-course="empresarial1" onclick="toggleCourse('empresarial1')">Dirección Empresarial I</div>
+                    <div class="course locked" data-course="trabajoGrado1" data-req="geologiaHistorica" onclick="toggleCourse('trabajoGrado1')">Trabajo de Grado I</div>
+                    <div class="course locked" data-course="geologiaColombia" data-req="hidrocarburos" onclick="toggleCourse('geologiaColombia')">Geología de Colombia</div>
+                    <div class="course" data-course="electiva2" onclick="toggleCourse('electiva2')">Asignatura Técnica</div>
+                </div>
+            </div>
+            
+            <!-- Nivel 10 -->
+            <div class="level">
+                <h2>Nivel 10</h2>
+                <div class="courses">
+                    <div class="course locked" data-course="trabajoGrado2" data-req="trabajoGrado1" onclick="toggleCourse('trabajoGrado2')">Trabajo de Grado II</div>
+                </div>
+            </div>
+        </div>
+    </div>
 
-  <script src="script.js"></script>
+    <script src="script.js"></script>
 </body>
 </html>
