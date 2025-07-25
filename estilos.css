@@ -1,1 +1,49 @@
+body {
+  font-family: Arial, sans-serif;
+  background-color: #f3f0f9;
+  color: #333;
+  padding: 20px;
+}
+
+h1 {
+  text-align: center;
+  color: #4a148c;
+}
+
+#grid {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.subject {
+  background-color: #d1c4e9;
+  border: 2px solid #b39ddb;
+  border-radius: 10px;
+  padding: 10px;
+  width: 200px;
+  cursor: pointer;
+  text-align: center;
+  transition: transform 0.2s, background-color 0.2s;
+}
+
+.subject:hover {
+  transform: scale(1.03);
+}
+
+.subject.approved {
+  background-color: #7e57c2;
+  color: white;
+}
+
+.subject.locked {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+.subject h3 {
+  margin: 5px 0;
+}
 
